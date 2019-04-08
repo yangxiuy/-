@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts实例</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .box{
+            width:400px;
+            height:400px;
+            background: #F3F2F3;
+            padding:10px;
+            border-radius: 4px;
+            float: left;
+            margin:10px;
+        }
+        .title{
+            line-height: 40px;
+            font-size:20px;
+            font-weight: bold;
+        }
+        .main{
+            width:100%;
+            height:calc(100% - 40px);
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="box">
+        <div class="title">双折柱（只显示两条数据）</div>
+        <div class="main" id="twoLineBar"></div>
+    </div>
+    <div class="box">
+        <div class="title">折线图</div>
+        <div class="main" id="line"></div>
+    </div>
+    <div class="box">
+        <div class="title">堆叠柱状图(只显示一条数据)</div>
+        <div class="main" id="backBar"></div>
+    </div>
+    <div class="box">
+        <div class="title">双柱（x轴换行,下载图表）</div>
+        <div class="main" id="twoBar"></div>
+    </div>
+    <div class="box">
+        <div class="title">仪表盘</div>
+        <div class="main" id="guage"></div>
+    </div>
+    <div class="box">
+        <div class="title">单环，进度/占比</div>
+        <div class="main" id="oneRings"></div>
+    </div>
+    <div class="box">
+        <div class="title">双环，占比</div>
+        <div class="main" id="twoRings"></div>
+    </div>
+    <div class="box">
+        <div class="title">地图（徐州）</div>
+        <div class="main" id="map"></div>
+    </div>
+    <div class="box">
+        <div class="title">雷达图</div>
+        <div class="main" id="radar"></div>
+    </div>
+</div>
+<script src="../../plugin/jquery.js"></script>
+<script src="../../plugin/echarts.js"></script>
+<script src="allDemos.js"></script>
+</body>
+</html>
