@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入中英文验证码</title>
+</head>
+<style>
+    .verificationBox {
+        width: 500px;
+        height: 40px;
+        display: flex;
+        border: 1px solid blue;
+        padding:10px;
+    }
+
+    .verificationTxt {
+        line-height: 40px
+    }
+
+    .verificationInput {
+        height: 25px;
+        border-radius: 2px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    #verification {
+        /*width: 100px;*/
+        height: 30px;
+        border: 1px solid gray;
+        border: 1px solid #4571BA;
+        background: #CBCBCB;
+        color: #E5317D;
+        line-height: 30px;
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 3px;
+        margin-left: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    .verificationBtn{
+        width:80px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: blue;
+        color: #fff;
+        margin-top:10px;
+        cursor: pointer;
+        border-radius: 2px;
+    }
+</style>
+<body>
+<div class="verificationBox">
+    <div class="verificationTxt">验证码</div>
+    <div>
+        <input class="verificationInput" placeholder="请输入验证码"/>
+    </div>
+    <div style="width: 130px;">
+        <div id="verification"></div>
+    </div>
+    <div>看不清，请点击图片<br/>（不区分大小写）</div>
+</div>
+<div class="verificationBtn">确定</div>
+
+<script src="../../plugin/jquery.js"></script>
+<script src="../../plugin/verificationCode.js"></script>
+<script>
+    var report = report || {};
+    report = {
+        init: function () {
+            var _this = this;
+            verificationCode.init('verification');
+            //验证码重置
+            $("#verification").click(function () {
+                verificationCode.init('verification');
+            });
+            $(".verificationBtn").click(function () {
+                if($(".verificationInput").val().toLowerCase() == ""){
+                    alert("请输入验证码！");
+                }else if($(".verificationInput").val().toLowerCase() == $("#verification").text().toLowerCase()){
+                    alert("验证码正确");
+
+                }else{
+                    alert("验证码错误");
+                    verificationCode.init('verification');
+                }
+
+            });
+        },
+    };
+    $(document).ready(function () {
+        report.init();
+    });
+</script>
+</body>
+</html>
